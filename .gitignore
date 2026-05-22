@@ -1,0 +1,25 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Sensitive data (NEVER commit these!)
+private-key*.txt
+mnemonic*.txt
+wallet.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# Build artifacts
+node_modules/

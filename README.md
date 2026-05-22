@@ -168,7 +168,7 @@ ai-web3-training-week1/
 
 ### Today (May 21, 2026)
 - [x] 初始化项目 Repo
-- [ ] 完成模块 A 的 Learning Agent 配置
+- [x] 完成模块 A 的 Learning Agent 配置
 - [ ] 完成模块 B 的钱包创建和测试网交易
 - [ ] 设计并完成模块 C 的最小交叉实验
 
