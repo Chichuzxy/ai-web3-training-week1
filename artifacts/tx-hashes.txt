@@ -1,0 +1,31 @@
+# 测试网交易哈希汇总
+
+> 所有交易均在测试网完成，严禁主网操作。
+
+## Sepolia Testnet
+
+### 合约部署
+- **合约地址:** `0xc56a356d2ccfe3240cc35dc8a8b3064e2cc67948`
+- **部署交易:** `0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937`
+- **区块浏览器:** https://sepolia.etherscan.io/address/0xc56a356d2ccfe3240cc35dc8a8b3064e2cc67948
+- **交易详情:** https://sepolia.etherscan.io/tx/0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937
+
+### 测试交易
+（待补充：普通转账交易的 TX Hash）
+
+---
+
+## 验证说明
+
+每条交易记录应在区块浏览器中可查，包含以下信息：
+- [x] 交易状态 (Success/Failed)
+- [ ] 区块号 (Block Number)
+- [ ] Gas Used / Gas Price
+- [ ] 确认数 (Confirmations)
+- [ ] 交易时间戳
+
+## 更新日志
+
+| 日期 | 操作 | 交易哈希 | 合约地址 |
+|------|------|----------|----------|
+| 2026-05-23 | 合约部署 | `0xf414...f937` | `0xc56a...7948` |
