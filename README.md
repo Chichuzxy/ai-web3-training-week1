@@ -22,24 +22,22 @@
 
 ```
 ai-web3-training-week1/
-├── module-a-ai-fundamentals/    # 模块 A｜AI 基础：从 LLM 到 Agent Workflow
+├── module-a-ai-fundamentals/    # 模块 A | AI 基础: 从 LLM 到 Agent Workflow
 │   ├── learning-agent-setup.md  # Learning Agent 配置记录
-│   ├── prompts-library.md       # Prompt 库（常用提示词模板）
+│   ├── prompts-library.md       # Prompt 库(常用提示词模板)
 │   └── demo/                    # Agent 生成的 Demo 项目
-├── module-b-web3-fundamentals/  # 模块 B｜Web3 基础：账户、钱包、签名与链上执行
-│   ├── wallet-setup.md          # 钱包创建说明
-│   ├── testnet-tx-record.md     # 测试网交易记录
-│   └── smart-contract-demo/     # 简单合约示例
-├── module-c-cross-experiment/   # 模块 C｜最小交叉实验：AI 输出到链上执行
-│   ├── workflow-diagram.md      # 流程图（AI→人工复核→钱包确认→链上执行）
-│   └── experiment-log.md        # 实验过程记录
-├── docs/                        # 学习笔记和概念卡片
-│   ├── concepts.md              # 核心概念速记
-│   └── glossary.md              # 术语表
+│       ├── eth-checksum-cli.py  # ETH 地址校验和 CLI 工具
+│       └── gas-price-checker.py # Gas 价格查询工具
+├── module-b-web3-fundamentals/  # 模块 B | Web3 基础: 账户、钱包、签名与链上执行
+│   └── testnet-tx-record.md     # 测试网交易记录
+├── docs/                        # 学习笔记与打卡
+│   ├── ai-web3-training-week1-daily-checkin-2026-05-22.md  # Day 1-3 打卡
+│   ├── ai-web3-training-week1-daily-checkin-2026-05-23.md  # Day 4-5 打卡
+│   └── prompt-parameter-experiments.md                     # Prompt 参数实验记录
 ├── artifacts/                   # Proof of Work 证据
-│   ├── screenshots/             # 截图证明
-│   └── tx-hashes.txt            # 交易哈希汇总
-└── README.md                    # 本项目说明（本文件）
+│   ├── tx-hashes.txt            # 交易哈希汇总
+│   └── TraceRecorder.sol        # 训练营合约源码
+└── README.md                    # 本项目说明(本文件)
 ```
 
 ---
@@ -166,20 +164,31 @@ ai-web3-training-week1/
 
 ## 🚦 进度追踪
 
-### Today (May 21, 2026)
-- [x] 初始化项目 Repo
-- [x] 完成模块 A 的 Learning Agent 配置
-- [ ] 完成模块 B 的钱包创建和测试网交易
-  - [x] 合约已部署到 Sepolia 测试网
-  - [x] 记录合约地址: `0xc56a...7948`
-  - [x] 记录部署交易: `0xf414...f937`
-  - [ ] 补充合约源码和读写验证
-- [ ] 设计并完成模块 C 的最小交叉实验
+### Week 1 完成进度
+
+**模块 A | AI 基础**
+- [x] 初始化项目 Repo + README
+- [x] 完成 Learning Agent 配置记录
+- [x] Prompt 库整理
+- [x] Agent 生成 Demo: eth-checksum-cli.py, gas-price-checker.py
+- [x] Prompt 参数实验记录
+- [x] Day 1-3 打卡 (05-22)
+- [x] Day 4-5 打卡 (05-23)
+
+**模块 B | Web3 基础**
+- [x] 合约已部署到 Sepolia 测试网 (TraceRecorder.sol)
+- [x] 合约地址: `0xc56a356d2ccfe3240cc35dc8a8b3064e2cc67948`
+- [x] 部署交易: `0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937`
+- [x] 合约源码已归档至 artifacts/
+- [x] 测试网交易记录文档
+
+**模块 C | 最小交叉实验**
+- [ ] 设计并完成交叉实验 (待完成)
 
 ### Next Steps
+- 补充合约读写验证记录
+- 完成模块 C 最小交叉实验
 - Week 2: Deep Dive into Smart Contracts + Advanced AI Patterns
-- Week 3: Building Real AI × Web3 Applications
-- Week 4: Final Project Showcase
 
 ---
 
