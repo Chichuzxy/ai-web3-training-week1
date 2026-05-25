@@ -192,6 +192,14 @@ ai-web3-training-week1/
 - [x] 模块 C 最小交叉实验 (已完成)
 - Week 2: Deep Dive into Smart Contracts + Advanced AI Patterns
 
+### Week 2 | 进行中
+| 模块 | 内容 | 状态 |
+|------|------|------|
+| A | AI 高级模式 (problem-map, prompt-engineering, agent-workflows) | [] |
+| B | Solidity 深入 (gas-optimization, security, OpenZeppelin) | [] |
+| C | AI×Web3 进阶实验 (audit pipeline, on-chain analysis) | [] |
+| D | L2/ZK 入门概览 | [] |
+
 ---
 
 ## 💡 队友备注
