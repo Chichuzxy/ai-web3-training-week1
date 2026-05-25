@@ -13,15 +13,15 @@
 
 | 字段 | 值 |
 |------|-----|
-| 合约地址 | `0xc56a356d2ccfe3240cc35dc8a8b3064e2cc67948` |
-| 部署交易哈希 | `0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937` |
+| 合约地址 | `0xdA2E7bF7aD355562fb1faeAFa3B560337410651a` |
+| 部署交易哈希 | `0x727688e97b6c4f7ae3223482e6fd9d81b27effa974b0f7d91dab4be370c22671` |
 | 部署网络 | Sepolia Testnet |
 | 部署者地址 | `0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9` |
 
 ### 区块浏览器链接
 
-- **合约页面:** https://sepolia.etherscan.io/address/0xc56a356d2ccfe3240cc35dc8a8b3064e2cc67948
-- **交易详情:** https://sepolia.etherscan.io/tx/0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937
+- **合约页面:** https://sepolia.etherscan.io/address/0xdA2E7bF7aD355562fb1faeAFa3B560337410651a
+- **交易详情:** https://sepolia.etherscan.io/tx/0x727688e97b6c4f7ae3223482e6fd9d81b27effa974b0f7d91dab4be370c22671
 
 ### 部署方式
 

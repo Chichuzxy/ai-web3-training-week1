@@ -177,17 +177,19 @@ ai-web3-training-week1/
 
 **模块 B | Web3 基础**
 - [x] 合约已部署到 Sepolia 测试网 (TraceRecorder.sol)
-- [x] 合约地址: `0xc56a356d2ccfe3240cc35dc8a8b3064e2cc67948`
-- [x] 部署交易: `0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937`
+- [x] 合约地址: `0xdA2E7bF7aD355562fb1faeAFa3B560337410651a`
+- [x] 部署交易: `0x727688e97b6c4f7ae3223482e6fd9d81b27effa974b0f7d91dab4be370c22671`
 - [x] 合约源码已归档至 artifacts/
 - [x] 测试网交易记录文档
+- [x] Gas 数据补充完成 (4 笔交易对比分析)
 
 **模块 C | 最小交叉实验**
-- [ ] 设计并完成交叉实验 (待完成)
+- [x] 完成 AI 生成合约 -> 人工复核 -> 钱包确认 -> 链上部署 -> 区块浏览器验证
+- [x] 交叉实验文档已创建
 
 ### Next Steps
-- 补充合约读写验证记录
-- 完成模块 C 最小交叉实验
+- [x] 合约读写验证记录 (已完成)
+- [x] 模块 C 最小交叉实验 (已完成)
 - Week 2: Deep Dive into Smart Contracts + Advanced AI Patterns
 
 ---

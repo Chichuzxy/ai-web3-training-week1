@@ -5,13 +5,17 @@
 ## Sepolia Testnet
 
 ### 合约部署
-- **合约地址:** `0xc56a356d2ccfe3240cc35dc8a8b3064e2cc67948`
-- **部署交易:** `0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937`
-- **区块浏览器:** https://sepolia.etherscan.io/address/0xc56a356d2ccfe3240cc35dc8a8b3064e2cc67948
-- **交易详情:** https://sepolia.etherscan.io/tx/0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937
+- **合约地址:** `0xdA2E7bF7aD355562fb1faeAFa3B560337410651a`
+- **部署交易:** `0x727688e97b6c4f7ae3223482e6fd9d81b27effa974b0f7d91dab4be370c22671`
+- **区块浏览器:** https://sepolia.etherscan.io/address/0xdA2E7bF7aD355562fb1faeAFa3B560337410651a
+- **交易详情:** https://sepolia.etherscan.io/tx/0x727688e97b6c4f7ae3223482e6fd9d81b27effa974b0f7d91dab4be370c22671
 
-### 测试交易
-（待补充：普通转账交易的 TX Hash）
+### 合约读写操作
+- **setValue(42):** `0x87d57a4c2f296157227adeed93852037b139ddaebe96384cea4ed0a83d60dc0d`
+- **setMessage:** `0x6c0a5b888bcb7185fd8ce653239a45ba5368e466507d1ccd799807297fe55bcf`
+
+### 普通转账
+- **ETH Transfer (0.001 ETH):** `0x8e15062a6f3c1ad149f8f9231372f5b51d69700ac49ac2bf864afb26764b9e8f`
 
 ---
 
@@ -19,13 +23,17 @@
 
 每条交易记录应在区块浏览器中可查，包含以下信息：
 - [x] 交易状态 (Success/Failed)
-- [ ] 区块号 (Block Number)
-- [ ] Gas Used / Gas Price
-- [ ] 确认数 (Confirmations)
-- [ ] 交易时间戳
+- [x] 区块号 (Block Number)
+- [x] Gas Used / Gas Price
+- [x] 确认数 (Confirmations)
+- [x] 交易时间戳
 
 ## 更新日志
 
 | 日期 | 操作 | 交易哈希 | 合约地址 |
 |------|------|----------|----------|
-| 2026-05-23 | 合约部署 | `0xf414...f937` | `0xc56a...7948` |
+| 2026-05-23 | 合约部署 (旧) | `0xf414...f937` | `0xc56a...7948` |
+| 2026-05-24 | 合约部署 (新) | `0x7276...2671` | `0xdA2E...651a` |
+| 2026-05-24 | setValue(42) | `0x87d5...dc0d` | `0xdA2E...651a` |
+| 2026-05-24 | setMessage | `0x6c0a...5bcf` | `0xdA2E...651a` |
+| 2026-05-24 | ETH Transfer | `0x8e15...9e8f` | N/A |
