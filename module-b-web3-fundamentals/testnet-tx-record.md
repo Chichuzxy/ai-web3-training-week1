@@ -85,8 +85,11 @@ lastOperator: 0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9
 **操作 1: 修改数值**
 - **调用函数:** `setValue(uint256 newValue, string memory note)`
 - **参数:** `newValue = 42`, `note = "First value update by Chichu"`
-- **交易哈希:** `待补充 - 请在实际执行后填入`
-- **预期结果:** 
+- **交易哈希:** `0x87d57a4c2f296157227adeed93852037b139ddaebe96384cea4ed0a83d60dc0d`
+- **Gas Used:** 33,226
+- **Gas Price:** 1.53062375 Gwei
+- **TxFee:** 0.0000509054846775 ETH
+- **结果:** 
   - `value` 从 0 变为 42
   - `lastOperator` 更新为 `0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9`
   - 触发 `ValueChanged` 事件
@@ -94,8 +97,11 @@ lastOperator: 0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9
 **操作 2: 修改消息**
 - **调用函数:** `setMessage(string memory newMessage)`
 - **参数:** `newMessage = "Hello from Chichu's TraceRecorder!"`
-- **交易哈希:** `待补充 - 请在实际执行后填入`
-- **预期结果:**
+- **交易哈希:** `0x6c0a5b888bcb7185fd8ce653239a45ba5368e466507d1ccd799807297fe55bcf`
+- **Gas Used:** 34,706
+- **Gas Price:** 1.534776295 Gwei
+- **TxFee:** 0.000053261341765385 ETH
+- **结果:**
   - `message` 从 "TraceRecorder initialized" 变为 "Hello from Chichu's TraceRecorder!"
   - `lastOperator` 更新为 `0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9`
   - 触发 `MessageChanged` 事件
@@ -103,8 +109,9 @@ lastOperator: 0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9
 **操作 3: 再次修改数值 (验证状态覆盖)**
 - **调用函数:** `setValue(uint256 newValue, string memory note)`
 - **参数:** `newValue = 100`, `note = "Second update - final value"`
-- **交易哈希:** `待补充 - 请在实际执行后填入`
-- **预期结果:**
+- **交易哈希:** 未记录
+- **Gas Used:** 未记录
+- **结果:**
   - `value` 从 42 变为 100
   - 证明合约状态可以被多次修改
 
@@ -112,16 +119,18 @@ lastOperator: 0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9
 
 ## 3. 测试交易（普通转账）
 
-- [ ] 发送一笔测试转账
-- [ ] 记录 TX Hash
+- [x] 发送一笔测试转账
+- [x] 记录 TX Hash
 
 **转账信息:**
 - **From:** `0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9`
-- **To:** `待填写 - 转入的地址或留空作为自我测试`
+- **To:** `0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9` (自我转账)
 - **金额:** `0.001 ETH` (测试网代币,无实际价值)
-- **交易哈希:** `待补充 - 完成转账后填入`
-- **区块号:** `待补充`
-- **区块浏览器:** https://sepolia.etherscan.io/tx/`待补充`
+- **交易哈希:** `0x8e15062a6f3c1ad149f8f9231372f5b51d69700ac49ac2bf864afb26764b9e8f`
+- **Gas Used:** 21,000
+- **Gas Price:** 1.50000004 Gwei
+- **TxFee:** 0.00003150000084 ETH
+- **区块浏览器:** https://sepolia.etherscan.io/tx/0x8e15062a6f3c1ad149f8f9231372f5b51d69700ac49ac2bf864afb26764b9e8f
 
 **操作步骤:**
 1. 打开 MetaMask,确保切换到 Sepolia 测试网
@@ -137,17 +146,31 @@ lastOperator: 0x147Fcf3EB8B9E305a5b4e16cbba90462F7126db9
 
 | 操作 | Gas Used | Gas Price (Gwei) | 总费用 (ETH) | 交易哈希 |
 |------|----------|------------------|--------------|----------|
-| 合约部署 | 待查询 | 待查询 | 待查询 | `0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937` |
-| setValue(42) | 待补充 | 待补充 | 待补充 | 待补充 |
-| setMessage | 待补充 | 待补充 | 待补充 | 待补充 |
-| setValue(100) | 待补充 | 待补充 | 待补充 | 待补充 |
-| 普通转账 | 待补充 | 待补充 | 待补充 | 待补充 |
+| 合约部署 | ~150,000 (估算) | ~1.5 (估算) | ~0.000225 (估算) | `0xf414a4aea774f9c34c0fc694e9f0792b8cfacdeaad7cca35adee7cd391dff937` |
+| setValue(42) | 33,226 | 1.53062375 | 0.0000509054846775 | `0x87d57a4c2f296157227adeed93852037b139ddaebe96384cea4ed0a83d60dc0d` |
+| setMessage | 34,706 | 1.534776295 | 0.000053261341765385 | `0x6c0a5b888bcb7185fd8ce653239a45ba5368e466507d1ccd799807297fe55bcf` |
+| 普通转账 | 21,000 | 1.50000004 | 0.00003150000084 | `0x8e15062a6f3c1ad149f8f9231372f5b51d69700ac49ac2bf864afb26764b9e8f` |
+| **总计** | **~238,932** | **~1.51 (平均)** | **~0.000360** | - |
 
-**查询方法:**
-- 在 Etherscan 上打开对应交易详情页
-- 查看 "Gas Used by Transaction" 字段
-- 查看 "Gas Price" 字段(单位 Gwei)
-- 计算总费用: `Gas Used × Gas Price / 10^9 = ETH`
+### Gas 对比分析
+
+| 对比项 | 数值 | 说明 |
+|--------|------|------|
+| 最省 Gas 的操作 | 普通转账 (21,000) | ETH 转账是固定成本，不执行合约代码 |
+| 最费 Gas 的操作 | setMessage (34,706) | 字符串存储比纯数值修改更耗 Gas |
+| setValue vs 转账 | 33,226 vs 21,000 | 合约写入比纯转账贵 ~58%，因为需要执行合约逻辑 |
+| setMessage vs setValue | 34,706 vs 33,226 | 字符串存储额外消耗 ~1,480 Gas |
+| Gas Price 范围 | 1.50 ~ 1.53 Gwei | Sepolia 测试网 Gas Price 很低，接近免费 |
+| 四笔交易总成本 | ~0.00036 ETH | 按当前 ETH 价格约 $0.001，测试网几乎无成本 |
+
+### 关键发现
+
+1. **合约写入 > 纯转账**: 任何合约函数调用都比简单转账贵，因为需要加载合约代码、执行状态变更、触发事件
+2. **字符串存储更贵**: `setMessage` 比 `setValue` 多消耗 ~1,480 Gas，因为 Solidity 中 `string` 是动态长度类型，需要额外的存储槽位
+3. **测试网 Gas 极低**: Sepolia 上 1.5 Gwei 的 Gas Price 意味着即使复杂操作也几乎免费，主网同期可能在 20-50 Gwei
+4. **Gas Used 的构成**: 
+   - 21,000 是交易基础成本 (Base Cost)
+   - 额外部分 = 合约执行成本 (SSTORE 存储操作、事件触发等)
 
 ---
 
