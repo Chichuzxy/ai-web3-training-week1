@@ -34,8 +34,8 @@
 |------|------|------|
 | AI 模型 | 简单线性回归 / 小型 MLP | Circom 对大模型支持有限，先跑通 PoC |
 | 模型格式 | ONNX | EZKL 原生支持 |
-| ZK 框架 | EZKL (主) + Circom (辅助) | EZKL 自动将 ONNX 转 ZK 电路，降低手写成本 |
-| 证明系统 | Halo2 (EZKL 默认) | 无需可信设置，比 Groth16 更安全 |
+|| ZK 框架 | EZKL (主) + Circom (辅助) | EZKL 自动将 ONNX 转 ZK 电路，降低手写成本。Circom 用于 PoC 阶段验证基本流程(见 circom-debug-log.md)，EZKL 用于后续 ONNX 模型转换 |
+|| 证明系统 | Halo2 (最终) / Groth16 (PoC) | Halo2 无需可信设置，比 Groth16 更安全，是 EZKL 的默认选择。Groth16 用于 PoC 阶段快速验证(工具链成熟、gas 低) |
 | 部署链 | Sepolia 测试网 | 免费 gas，训练营标准 |
 | 合约框架 | Foundry | 测试快，Solidity 原生 |
 | 前端 | 可选 (后期) | PoC 阶段用 CLI 即可 |

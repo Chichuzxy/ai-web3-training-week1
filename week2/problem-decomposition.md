@@ -111,8 +111,10 @@ Verifier 合约不验证"结果对不对"，而是验证"Prover 是否诚实地�
 | ZK-STARK | 较高 | 快 | 无需可信设置 | 抗量子需求 |
 | TEE (SGX/TDX) | 极低 | 实时 | 信任硬件厂商 | 实时性要求高 |
 
-**当前选择: Groth16**
-原因: 电路相对固定(选定模型后不变)，gas 最低，Circom 工具链支持好。
+**当前选择: Groth16 (PoC 阶段) + Halo2 (后续迁移)**
+原因:
+- PoC 阶段用 Groth16: 电路简单固定，gas 最低，Circom + SnarkJS 工具链成熟，适合快速验证基本流程
+- 后续迁移到 Halo2: 无需可信设置，比 Groth16 更安全，适合模型频繁更新的场景。任务 3 (Proposal) 指定用 EZKL + Halo2 作为最终方案，本 PoC 用 Circom + Groth16 先跑通"编译 → Proof → Verify"全流程，验证可行性后再迁移。
 
 ### 5.3 验证失败的兜底
 

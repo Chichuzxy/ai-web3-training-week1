@@ -2,7 +2,9 @@
 
 **作者:** Chichuzxy  
 **日期:** 2026-05-28  
-**目标:** 用 Circom + SnarkJS 跑通 basicAdd 电路的 编译 → Witness → Proof → Verify 全流程
+**目标:** 用 Circom + SnarkJS (Groth16) 跑通 basicAdd 电路的 编译 → Witness → Proof → Verify 全流程
+
+> **与 Proposal 的关系:** 这是任务 3 (proposal-zkml.md) Phase 1 的前置步骤。Proposal 指定最终用 EZKL + Halo2 作为生产方案，本 PoC 先用 Circom + Groth16 验证"编译 → Proof → Verify"基本流程是否可行，确认工具链和环境正常后再迁移到 EZKL + Halo2。Groth16 的优势是工具链成熟 (SnarkJS)、gas 低，适合快速验证；Halo2 无需可信设置，后续用于 ONNX 模型转换。
 
 ---
 
@@ -152,3 +154,4 @@ snarkjs groth16 verify verification_key.json public.json proof.json
 - 将 `verification_key.json` 和 `proof.json` 用于链上 Verifier 合约部署
 - 用 `snarkjs zkey export solidityverifier` 生成 Solidity 验证合约
 - 在 Sepolia 测试网部署并验证
+- **迁移到 EZKL + Halo2:** 本 PoC 验证了 Circom + Groth16 基本流程可行，接下来按任务 3 (proposal-zkml.md) Phase 2 执行：用 EZKL 将 ONNX 模型转为 ZK 电路，用 Halo2 生成证明并部署到链上
