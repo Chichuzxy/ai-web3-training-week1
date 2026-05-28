@@ -149,7 +149,37 @@ snarkjs groth16 verify verification_key.json public.json proof.json
 
 ---
 
-## 五、下一步
+## 五、最终状态
+
+### 5.1 电路文件
+```circom
+pragma circom 2.2.3
+
+template BasicAdd() {
+    signal input a;
+    signal input b;
+    signal output c;
+    c <== a + b;
+}
+component main = BasicAdd();
+```
+
+### 5.2 验证结果
+- 输入: a=3, b=5
+- 输出: c=8
+- Proof 验证: **OK!**
+
+### 5.3 产物位置
+```
+week2/artifacts/circom-poc/
+├── basicAdd.circom      # 电路源码
+├── input.json           # 测试输入 {a:3, b:5}
+├── proof.json           # 生成的 ZK proof
+├── public.json          # 公开输出 {c:8}
+└── verification_key.json # 链上验证密钥
+```
+
+## 六、下一步
 
 - 将 `verification_key.json` 和 `proof.json` 用于链上 Verifier 合约部署
 - 用 `snarkjs zkey export solidityverifier` 生成 Solidity 验证合约
