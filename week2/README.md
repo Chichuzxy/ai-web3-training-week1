@@ -71,6 +71,11 @@ ai-web3-training-week1/
 │   │   ├── l2-overview.md              # Layer2概览
 │   │   └── zkml-intro.md               # ZKML概念
 │   │
+│   ├── direction-selection.md          # 方向选择说明
+│   ├── problem-decomposition.md        # 核心问题拆解
+│   ├── proposal-zkml.md                # ZKML 初步 Proposal
+│   ├── references.md                   # 参考资料清单
+│   ├── circom-debug-log.md             # Circom 调试记录
 │   ├── daily-checkin/                  # Week2 每日打卡
 │   └── artifacts/                      # Week2 产物(代码、hash、截图)
 │
@@ -97,9 +102,13 @@ ai-web3-training-week1/
 ## 五、推进计划
 
 ### Day 1-2: Module A 问题地图 + Prompt Engineering
-- [ ] 阅读 problem-map.md，确定本周优先解决的项
-- [ ] Prompt参数对照实验（Temperature, Top-p, Max Tokens）
-- [ ] Structured Output 实践
+- [x] 阅读 problem-map.md，确定本周优先解决的项
+- [x] 确定主方向: Privacy & Security → ZKML
+- [x] 编写方向选择说明 (direction-selection.md)
+- [x] 核心问题拆解 (problem-decomposition.md)
+- [x] 初步 Proposal (proposal-zkml.md)
+- [x] 参考资料清单 (references.md)
+- [x] Circom 环境调试 + basicAdd 全流程跑通 (circom-debug-log.md)
 
 ### Day 3-4: Module B Solidity 深入
 - [ ] Gas 优化 checklist 编写
