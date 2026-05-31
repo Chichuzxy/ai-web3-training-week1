@@ -1,124 +1,75 @@
-# Week 2 | Deep Dive: Smart Contracts + Advanced AI Patterns
+# Week 2 | AI x Web3 问题地图 & Proposal
 
-**起始日期:** TBD  
-**前置条件:** Week 1 完成（Learning Agent + Web3 基础 + 交叉实验）
-
----
-
-## 一、Week 1 回顾
-
-### 已完成交付物
-| 模块 | 内容 | 状态 |
-|------|------|------|
-| A | Learning Agent 配置记录 | ✅ |
-| A | Prompt 库 + 参数实验 | ✅ |
-| A | Demo CLI 工具 | ✅ |
-| B | 钱包创建 + Sepolia 交互 | ✅ |
-| B | TraceRecorder.sol 部署 | ✅ |
-| B | Gas 数据分析 | ✅ |
-| C | AI x Web3 交叉实验 | ✅ |
-
-### 遗留待深化
-- Foundry/Hardhat 测试工作流未搭建
-- OpenZeppelin 标准库未实践
-- Agent Tool Use / ReAct Pattern 未深入
-- Prompt Engineering 不够系统化
-- 合约安全审计无实操经历
+**日期:** 2026-05-28 ~ 2026-05-30
+**主方向:** Privacy & Security -> ZKML (零知识证明机器学习)
+**前置:** Week 1 完成
 
 ---
 
-## 二、Week 2 目标
+## Bootcamp Week 2 核心任务
 
-| 优先级 | 模块 | 核心内容 |
-|--------|------|----------|
-| P0 | Module A | AI高级模式: ReAct, Structured Output, Agent Workflow |
-| P0 | Module B | Solidity深入: Gas优化, Security Audit, OpenZeppelin |
-| P1 | Module C | AIxWeb3进阶: 合约审计流水线, 链上数据+AI分析 |
-| P2 | Module D | L2/ZK入门: Layer2原理, ZKML概念探索 |
+构建 AI x Web3 问题地图，选定一个主方向做深挖，产出 Proposal。
+
+关键判断标准: AI 的角色和 Web3 机制是否都不可替代。
 
 ---
 
-## 三、目录结构总览
+## 交付物 (7 项)
+
+| # | 交付物 | 文件 | 状态 |
+|---|--------|------|------|
+| 1 | 问题地图 | problem-map.md | done |
+| 2 | 方向选择说明 | direction-selection.md | done |
+| 3 | 问题拆解 | problem-decomposition.md | done |
+| 4 | 初步 Proposal | proposal-zkml.md | done |
+| 5 | 参考资料 | references.md | done |
+| 6 | 主方向深挖包 | deep-dive-package.md | done |
+| 7 | 方向 backlog | direction-backlog.md | done |
+
+---
+
+## 目录结构
 
 ```
-ai-web3-training-week1/
-├── week1/                              ← Week1 全部内容保留在此
-│   ├── module-a-ai-fundamentals/       # learning-agent-setup, prompts-library
-│   ├── module-b-web3-fundamentals/     # testnet-tx-record
-│   ├── module-c-cross-experiment/      # cross-experiment-record
-│   ├── docs/                           # daily-checkin, prompt experiments
-│   └── artifacts/                      # tx-hashes.txt, TraceRecorder.sol
+week2/
+├── README.md                    # 本文件
+├── problem-map.md               # [1] 问题地图 (6 方向 x AI/Web3 不可替代性判断)
+├── direction-selection.md       # [2] 方向选择 -> ZKML
+├── problem-decomposition.md     # [3] 核心问题五层拆解
+├── proposal-zkml.md             # [4] ZKML 初步 Proposal
+├── references.md                # [5] 参考资料清单
+├── deep-dive-package.md         # [6] 主方向深挖包: 流程图/场景/反例/风险/验证计划
+├── direction-backlog.md         # [7] 方向 backlog (未选方向 + 不选原因)
 │
-├── week2/                              ← Week2 新内容
-│   ├── module-a-ai-patterns/           # AI高级模式
-│   │   ├── problem-map.md              # 问题地图 ← 从这里开始
-│   │   ├── prompt-engineering.md       # Prompt工程系统化
-│   │   ├── agent-workflows.md          # ReAct, Multi-Agent
-│   │   └── structured-output.md        # JSON Schema 实践
-│   │
-│   ├── module-b-smart-contracts/       # 智能合约深入
-│   │   ├── solidity-security.md        # 合约安全审计清单
-│   │   ├── gas-optimization.md         # Gas优化实战指南
-│   │   ├── openzeppelin-guide.md       # OZ标准库使用
-│   │   └── foundry-setup.md            # Foundry环境搭建
-│   │
-│   ├── module-c-ai-web3-pro/           # AIxWeb3进阶实验
-│   │   ├── experiment-1.md             # 实验1: AI合约审计流水线
-│   │   ├── experiment-2.md             # 实验2: 链上数据+AI分析
-│   │   └── experiment-3.md             # 实验3: Oracle+AI决策
-│   │
-│   ├── module-d-l2-zk/                 # L2/ZK入门
-│   │   ├── l2-overview.md              # Layer2概览
-│   │   └── zkml-intro.md               # ZKML概念
-│   │
-│   ├── direction-selection.md          # 方向选择说明
-│   ├── problem-decomposition.md        # 核心问题拆解
-│   ├── proposal-zkml.md                # ZKML 初步 Proposal
-│   ├── references.md                   # 参考资料清单
-│   ├── circom-debug-log.md             # Circom 调试记录
-│   ├── daily-checkin/                  # Week2 每日打卡
-│   └── artifacts/                      # Week2 产物(代码、hash、截图)
+├── artifacts/
+│   └── circom-poc/              # Circom PoC 产物 (电路/证明/验证密钥)
+│       ├── basicAdd.circom
+│       ├── input.json
+│       ├── proof.json
+│       ├── public.json
+│       └── verification_key.json
 │
-├── module-a-ai-fundamentals/           # Week1原目录(保留)
-├── module-b-web3-fundamentals/         # Week1原目录(保留)
-├── module-c-cross-experiment/          # Week1原目录(保留)
-├── docs/                               # Week1文档(保留)
-├── artifacts/                          # Week1产物(保留)
-├── README.md                           # 全局进度追踪
-└── week2/README.md                     # 本文件
+└── circom-debug-log.md          # Circom 调试记录 (版本/语法/CRLF)
 ```
 
 ---
 
-## 四、本周安全红线（继承自 Week 1）
+## 主方向: Privacy & Security -> ZKML
 
-- 私钥和助记词永远不暴露给 AI
-- 所有上链操作必须在测试网完成
-- 每笔交易必须人工确认
-- AI生成的代码必须经过人工审查后才能部署
+核心问题: 如何不暴露模型权重的前提下，让链上合约验证 AI 推理结果？
+
+不可替代性分析:
+- AI 侧: ZK 电路需要 ML 模型推理逻辑 -> AI 不可替代
+- Web3 侧: 验证结果存于不可篡改的链上 -> Web3 不可替代
+- 交叉点: ZK 证明将 AI 推理的可信度锚定到链上
+
+更多细节见 proposal-zkml.md + deep-dive-package.md。
 
 ---
 
-## 五、推进计划
+## 安全红线
 
-### Day 1-2: Module A 问题地图 + Prompt Engineering
-- [x] 阅读 problem-map.md，确定本周优先解决的项
-- [x] 确定主方向: Privacy & Security → ZKML
-- [x] 编写方向选择说明 (direction-selection.md)
-- [x] 核心问题拆解 (problem-decomposition.md)
-- [x] 初步 Proposal (proposal-zkml.md)
-- [x] 参考资料清单 (references.md)
-- [x] Circom 环境调试 + basicAdd 全流程跑通 (circom-debug-log.md)
-
-### Day 3-4: Module B Solidity 深入
-- [ ] Gas 优化 checklist 编写
-- [ ] OpenZeppelin ERC20 合约实现
-- [ ] Foundry 测试环境搭建
-
-### Day 5-6: Module C AI×Web3 进阶
-- [ ] 选择1-2个实验动手实践
-- [ ] 记录实验过程和边界情况
-
-### Day 7: 总结归档
-- [ ] 每日打卡整理
-- [ ] Commit & Push
+- 私钥/助记词永不暴露给 AI
+- 所有链上操作仅限测试网
+- 每笔交易须人工确认
+- AI 生成代码须人工审查后部署
