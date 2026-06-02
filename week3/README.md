@@ -80,12 +80,12 @@ ZKML 全链路作为 Long-Horizon Task:
 
 | 优先级 | 任务 | 预计时间 |
 |--------|------|----------|
-| P0 | 提交4个遗留文件 -> 已推送 | 10min done |
-| P0 | Week 3 目录 + 缺口诊断 -> 本文件 | 20min done |
-| P1 | 更新根 README | 15min |
-| P1 | 1 页 Hackathon proposal memo | 30min |
-| P1 | 深度研究: EZKL 摘要 | 30min |
-| P2 | Repo skeleton 初始化 | 20min |
+| P0 | 提交4个遗留文件 | 10min done |
+| P0 | 缺口诊断 | 20min done |
+| P1 | 更新根 README | 15min done |
+| P1 | proposal memo | 30min done |
+| P1 | 深度研究 | 30min done |
+| P2 | Repo skeleton + sprint plan | 20min done |
 
 ---
 
