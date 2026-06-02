@@ -1,7 +1,7 @@
-# 🚀 AI x Web3 School - Week 1 Training Project
+# 🚀 AI x Web3 School - Training Project
 
-**学员:** Chichu  
-**周次:** Week 1｜AI 与 Web3 基础知识  
+**学员:** Chichuzxy
+**当前周次:** Week 3｜Hackathon 启动 + 方向收敛
 **开始日期:** May 21, 2026
 
 ---
@@ -192,27 +192,34 @@ ai-web3-training-week1/
 - [x] 模块 C 最小交叉实验 (已完成)
 - Week 2: Deep Dive into Smart Contracts + Advanced AI Patterns
 
-### Week 2 | 进行中
-| 模块 | 内容 | 状态 |
-|------|------|------|
-| A | AI 高级模式 (problem-map, prompt-engineering, agent-workflows) | [] |
-| B | Solidity 深入 (gas-optimization, security, OpenZeppelin) | [] |
-| C | AI×Web3 进阶实验 (audit pipeline, on-chain analysis) | [] |
-| D | L2/ZK 入门概览 | [] |
+### Week 2 | 已完成
+| 交付物 | 文件 | 状态 |
+|--------|------|------|
+| 问题地图 | week2/problem-map.md | done |
+| 方向选择说明 | week2/direction-selection.md | done |
+| 问题拆解 | week2/problem-decomposition.md | done |
+| 初步 Proposal | week2/proposal-zkml.md | done |
+| 参考资料 | week2/references.md | done |
+| 主方向深挖包 | week2/deep-dive-package.md | done |
+| 方向 backlog | week2/direction-backlog.md | done |
+| Circom PoC | week2/artifacts/circom-poc/ | done |
+
+### Week 3 | 进行中
+| 任务 | 状态 |
+|------|------|
+| 缺口诊断 | done |
+| 赛道对齐 (Z.AI) | done |
+| 1 页 proposal memo | todo |
+| 深度研究 (EZKL/Circom/Halo2) | todo |
+| 组队 + 角色分工 | todo |
+| Repo skeleton + sprint plan | todo |
+
+主方向: Privacy & Security -> ZKML 推理验证
+目标赛道: Z.AI | Web3 x Long-Horizon Task
 
 ---
 
-## 💡 队友备注
+## 💡 备注
 
-这是 Chichu 的第一个训练营项目，主要用于：
-1. 记录 AI Agent 使用经验
-2. 积累 Web3 开发技能  
-3. 完成每周的 proof-of-work 交付
-4. 为后续更复杂的项目打基础
-
-**下一步行动建议：**
-- 先跑通模块 A 的 Learning Agent 设置
-- 然后做模块 B 的基础实操（这个最重要！）
-- 最后尝试模块 C 的交叉实验
-
-有问题随时喊我！一起搞定这周的任务 🤝
+ZKML 全链路 (训练->ONNX->电路->部署->推理->验证) 作为 Long-Horizon Task 天然对齐 Z.AI 赛道。
+Week 3 目标: 把 proposal 收敛成 Week 4 可冲刺的 MVP 范围。
