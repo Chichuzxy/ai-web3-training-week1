@@ -47,45 +47,53 @@ ZKML 全链路作为 Long-Horizon Task:
 
 ## 三、本周任务清单
 
-### 课程 A - 补齐 (已基本完成)
+### 课程 A - 补齐 (已完成)
 - [x] Week 1-2 缺口诊断 (本文件)
-- [ ] 更新根目录 README 反映 Week 3 状态
-- [ ] 1 页 proposal memo (Hackathon 格式)
+- [x] 更新根目录 README 反映 Week 3 状态
+- [x] 1 页 proposal memo (Hackathon 格式)
 
-### 课程 B - 深度研究
-- [ ] EZKL 阅读摘要: 解决什么、边界、缺什么
-- [ ] Circom/SnarkJS 阅读摘要: 工具链成熟度、限制
-- [ ] Halo2 vs Groth16 对比: 何时用哪个
-- [ ] Risk memo: ZKML 方向成立的前提和失败点
+### 课程 B - 深度研究 (已完成)
+- [x] EZKL 阅读摘要
+- [x] Circom/SnarkJS 阅读摘要
+- [x] Halo2 vs Groth16 对比
+- [x] Risk memo
 
 ### Hackathon 准备
-- [ ] 选定赛道: Z.AI Long-Horizon Task
-- [ ] 下载/了解 GLM API / SDK
-- [ ] 项目卡片: 项目名、用户、最小功能
-- [ ] 组队: 角色分工、技术栈确认
-- [ ] Repo skeleton + sprint plan
+- [x] 选定赛道: Z.AI Long-Horizon Task
+- [x] Hackathon 方向卡
+- [x] 项目卡片: ZKML Pipeline Agent
+- [ ] 组队: 单人，待确认是否开放组队
+- [x] Repo skeleton + sprint plan
+- [ ] Foundry 安装 + contracts 目录初始化
+- [ ] GLM API 调研
 
 ### 本周交付物
-1. 缺口诊断 (本文件)
-2. 更新后的根 README
-3. 1 页 proposal memo
-4. 2-3 份深度研究摘要
-5. 1 份 risk memo
-6. Hackathon 方向卡
-7. Repo skeleton + Week 4 sprint plan
+1. [x] 缺口诊断
+2. [x] 更新后的根 README
+3. [x] 1 页 proposal memo
+4. [x] 2-3 份深度研究摘要
+5. [x] 1 份 risk memo
+6. [x] Hackathon 方向卡
+7. [x] Repo skeleton + sprint plan
+8. [ ] Foundry 项目初始化
+| [x] GLM workshop 笔记 / API 调研 |
 
 ---
 
 ## 四、今日任务 (6/2)
 
-| 优先级 | 任务 | 预计时间 |
-|--------|------|----------|
-| P0 | 提交4个遗留文件 | 10min done |
-| P0 | 缺口诊断 | 20min done |
-| P1 | 更新根 README | 15min done |
-| P1 | proposal memo | 30min done |
-| P1 | 深度研究 | 30min done |
-| P2 | Repo skeleton + sprint plan | 20min done |
+| 优先级 | 任务 | 状态 |
+|--------|------|------|
+| P0 | 提交4个遗留文件 | done |
+| P0 | 缺口诊断 | done |
+| P1 | 更新根 README | done |
+| P1 | proposal memo | done |
+| P1 | 深度研究 | done |
+| P1 | Hackathon 方向卡 | done |
+| P1 | 队伍信息文档 | done |
+| P1 | GLM API 集成计划 | done |
+| P2 | Repo skeleton + sprint plan | done |
+| P2 | Foundry 安装 + contracts 初始化 | 需用户确认安装 |
 
 ---
 

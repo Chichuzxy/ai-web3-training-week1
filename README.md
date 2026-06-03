@@ -2,19 +2,15 @@
 
 **学员:** Chichuzxy
 **当前周次:** Week 3｜Hackathon 启动 + 方向收敛
+**主方向:** Privacy & Security -> ZKML 推理验证
+**赛道:** Z.AI | Web3 x Long-Horizon Task
 **开始日期:** May 21, 2026
 
 ---
 
-## 📋 本周目标
+## 📋 本周 (Week 3) 目标
 
-建立 AI × Web3 的共同语言 + 第一轮真实操作能力。
-
-重点不是把 AI 和 Web3 各自讲成完整大课，而是完成：
-- ✅ AI 工具实践
-- ✅ 测试网交互  
-- ✅ 最小 AI × Web3 交叉实验
-- ✅ 知道哪些动作可以自动化、哪些必须人工确认
+收敛方向、补齐研究、组建队伍、为 Week 4 Hackathon 冲刺做好一切准备。
 
 ---
 
@@ -22,22 +18,38 @@
 
 ```
 ai-web3-training-week1/
-├── module-a-ai-fundamentals/    # 模块 A | AI 基础: 从 LLM 到 Agent Workflow
-│   ├── learning-agent-setup.md  # Learning Agent 配置记录
-│   ├── prompts-library.md       # Prompt 库(常用提示词模板)
-│   └── demo/                    # Agent 生成的 Demo 项目
-│       ├── eth-checksum-cli.py  # ETH 地址校验和 CLI 工具
-│       └── gas-price-checker.py # Gas 价格查询工具
-├── module-b-web3-fundamentals/  # 模块 B | Web3 基础: 账户、钱包、签名与链上执行
-│   └── testnet-tx-record.md     # 测试网交易记录
-├── docs/                        # 学习笔记与打卡
-│   ├── ai-web3-training-week1-daily-checkin-2026-05-22.md  # Day 1-3 打卡
-│   ├── ai-web3-training-week1-daily-checkin-2026-05-23.md  # Day 4-5 打卡
-│   └── prompt-parameter-experiments.md                     # Prompt 参数实验记录
-├── artifacts/                   # Proof of Work 证据
-│   ├── tx-hashes.txt            # 交易哈希汇总
-│   └── TraceRecorder.sol        # 训练营合约源码
-└── README.md                    # 本项目说明(本文件)
+├── README.md                    # 本文件
+├── .gitignore
+│
+├── module-a-ai-fundamentals/    # [Done] AI 基础
+├── module-b-web3-fundamentals/  # [Done] Web3 基础
+├── module-c-cross-experiment/   # [Done] 交叉实验
+├── module-d-l2-zk/              # [Done] L2/ZK 模块
+│
+├── week2/                       # [Done] 问题地图 + 方向选择 + Proposal
+│   ├── problem-map.md
+│   ├── direction-selection.md
+│   ├── proposal-zkml.md
+│   ├── deep-dive-package.md
+│   └── artifacts/circom-poc/
+│
+├── week3/                       # [Done] 缺口诊断 + 深度研究
+│   ├── README.md
+│   ├── proposal-memo.md         # Hackathon 1页 proposal
+│   └── deep-research.md         # EZKL/Circom/Halo2 + risk memo
+│
+├── project/                     # Hackathon 项目骨架
+│   ├── README.md                # 项目说明
+│   ├── sprint-plan.md           # Week 4 每日任务
+│   ├── hackathon-card.md        # Hackathon 方向卡
+│   ├── team.md                  # 队伍信息
+│   ├── foundry.toml
+│   └── .env.example
+│
+├── docs/                        # 学习笔记
+├── artifacts/                   # 交易记录 + PoW
+├── agent-workflows/             # Agent 编排脚本
+└── testing-foundry/             # Foundry 测试练习
 ```
 
 ---
@@ -209,13 +221,17 @@ ai-web3-training-week1/
 |------|------|
 | 缺口诊断 | done |
 | 赛道对齐 (Z.AI) | done |
-| 1 页 proposal memo | todo |
-| 深度研究 (EZKL/Circom/Halo2) | todo |
-| 组队 + 角色分工 | todo |
-| Repo skeleton + sprint plan | todo |
+| 1 页 proposal memo | done |
+| 深度研究 (EZKL/Circom/Halo2) | done |
+| Risk memo | done |
+| Hackathon 方向卡 | done |
+| 组队 + 角色分工 | done |
+| Repo skeleton + sprint plan | done |
+| GLM API 集成调研 | done |
 
 主方向: Privacy & Security -> ZKML 推理验证
 目标赛道: Z.AI | Web3 x Long-Horizon Task
+项目名: ZKML Pipeline Agent
 
 ---
 
