@@ -43,8 +43,14 @@ ai-web3-training-week1/
 │   ├── sprint-plan.md           # Week 4 每日任务
 │   ├── hackathon-card.md        # Hackathon 方向卡
 │   ├── team.md                  # 队伍信息
-│   ├── foundry.toml
+│   ├── glm-api-plan.md          # GLM-5.1 API 方案
 │   └── .env.example
+│
+├── contracts/                   # [Done] Foundry 合约 + 测试
+│   ├── foundry.toml
+│   ├── src/
+│   ├── test/
+│   └── lib/forge-std/           # forge-std 标准库
 │
 ├── docs/                        # 学习笔记
 ├── artifacts/                   # 交易记录 + PoW
@@ -216,7 +222,7 @@ ai-web3-training-week1/
 | 方向 backlog | week2/direction-backlog.md | done |
 | Circom PoC | week2/artifacts/circom-poc/ | done |
 
-### Week 3 | 进行中
+### Week 3 | 已完成 ✅
 | 任务 | 状态 |
 |------|------|
 | 缺口诊断 | done |
@@ -228,6 +234,7 @@ ai-web3-training-week1/
 | 组队 + 角色分工 | done |
 | Repo skeleton + sprint plan | done |
 | GLM API 集成调研 | done |
+| Foundry 安装 + contracts 初始化 | done |
 
 主方向: Privacy & Security -> ZKML 推理验证
 目标赛道: Z.AI | Web3 x Long-Horizon Task
