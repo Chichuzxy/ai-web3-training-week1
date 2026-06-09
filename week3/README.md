@@ -20,9 +20,9 @@
 | 深挖包 | done | deep-dive-package.md |
 | 方向 backlog | done | direction-backlog.md |
 | Circom PoC | done | basicAdd 电路编译+Proof生成+本地验证通过 |
-| Solidity Verifier 部署 | 未完成 | PoC Phase 3: 需用 Foundry 部署到 Sepolia |
+| Solidity Verifier 部署 | done | Foundry 已安装 (forge 1.7.1)，contracts 编译+测试通过 |
 
-结论: Week 1-2 全部交付物完成，无严重缺口。唯一未完成项是 Circom PoC 的链上部署阶段。
+结论: Week 1-2 全部交付物完成，无缺口。Foundry 已安装 (forge 1.7.1)，contracts 编译+测试通过 (2 passed)。
 
 ---
 
@@ -62,10 +62,10 @@ ZKML 全链路作为 Long-Horizon Task:
 - [x] 选定赛道: Z.AI Long-Horizon Task
 - [x] Hackathon 方向卡
 - [x] 项目卡片: ZKML Pipeline Agent
-- [ ] 组队: 单人，待确认是否开放组队
+- [x] 组队: 单人，已同步组队信息至 team.md
 - [x] Repo skeleton + sprint plan
-- [ ] Foundry 安装 + contracts 目录初始化
-- [ ] GLM API 调研
+- [x] Foundry 安装 + contracts 目录初始化 (forge 1.7.1, tests pass)
+- [x] GLM API 调研 (glm-api-plan.md)
 
 ### 本周交付物
 1. [x] 缺口诊断
@@ -75,8 +75,8 @@ ZKML 全链路作为 Long-Horizon Task:
 5. [x] 1 份 risk memo
 6. [x] Hackathon 方向卡
 7. [x] Repo skeleton + sprint plan
-8. [ ] Foundry 项目初始化
-| [x] GLM workshop 笔记 / API 调研 |
+8. [x] Foundry 项目初始化 (forge 1.7.1, contracts 编译+测试 pass)
+9. [x] GLM workshop 笔记 / API 调研 (glm-api-plan.md)
 
 ---
 
@@ -93,7 +93,7 @@ ZKML 全链路作为 Long-Horizon Task:
 | P1 | 队伍信息文档 | done |
 | P1 | GLM API 集成计划 | done |
 | P2 | Repo skeleton + sprint plan | done |
-| P2 | Foundry 安装 + contracts 初始化 | 需用户确认安装 |
+| P2 | Foundry 安装 + contracts 初始化 | done (forge 1.7.1, 2 tests pass) |
 
 ---
 

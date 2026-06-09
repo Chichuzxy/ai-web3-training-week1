@@ -234,7 +234,7 @@ ai-web3-training-week1/
 | 组队 + 角色分工 | done |
 | Repo skeleton + sprint plan | done |
 | GLM API 集成调研 | done |
-| Foundry 安装 + contracts 初始化 | done |
+| Foundry 安装 + contracts 初始化 | done | forge 1.7.1, PATH 已写入 .bashrc, tests: 2 passed |
 
 主方向: Privacy & Security -> ZKML 推理验证
 目标赛道: Z.AI | Web3 x Long-Horizon Task
