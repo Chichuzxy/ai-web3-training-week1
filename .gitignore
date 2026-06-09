@@ -29,3 +29,6 @@ contracts/lib/
 contracts/out/
 contracts/cache/
 
+# EZKL large artifacts
+project/ezkl_output/pk.key
+project/ezkl_output/kzg.srs
