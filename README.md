@@ -1,7 +1,7 @@
 # 🚀 AI x Web3 School - Training Project
 
 **学员:** Chichuzxy
-**当前周次:** Week 3｜Hackathon 启动 + 方向收敛
+**当前周次:** Week 4｜Hackathon 冲刺
 **主方向:** Privacy & Security -> ZKML 推理验证
 **赛道:** Z.AI | Web3 x Long-Horizon Task
 **开始日期:** May 21, 2026
@@ -236,6 +236,19 @@ ai-web3-training-week1/
 | GLM API 集成调研 | done |
 | Foundry 安装 + contracts 初始化 | done | forge 1.7.1, PATH 已写入 .bashrc, tests: 2 passed |
 
+### Week 4 | 进行中
+| 任务 | 状态 | 备注 |
+|------|------|------|
+| 模型训练 + ONNX 导出 | done | Gemm 算子, 归一化输入 |
+| EZKL 电路编译 | done | compiled.model |
+| EZKL setup (pk + vk) | done | pk.key 138MB, vk.key 66KB |
+| ZK Proof 生成 | done | proof.json 18KB |
+| 本地验证 | done | verify OK |
+| EVM Verifier 生成 | blocked | ezkl Win async bug, 需 Colab |
+| Z.AI GLM-5.1 API | pending | 待新 Key |
+| Verifier 合约编译 | pending | |
+| Sepolia 部署 + 验证 | pending | |
+
 主方向: Privacy & Security -> ZKML 推理验证
 目标赛道: Z.AI | Web3 x Long-Horizon Task
 项目名: ZKML Pipeline Agent
@@ -245,4 +258,4 @@ ai-web3-training-week1/
 ## 💡 备注
 
 ZKML 全链路 (训练->ONNX->电路->部署->推理->验证) 作为 Long-Horizon Task 天然对齐 Z.AI 赛道。
-Week 3 目标: 把 proposal 收敛成 Week 4 可冲刺的 MVP 范围。
+Week 4 目标: 端到端最小闭环 demo。当前 Day 1-2 已完成，proof 本地验证通过，待 Verifier 合约生成后上链。
