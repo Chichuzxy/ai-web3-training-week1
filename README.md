@@ -244,14 +244,21 @@ ai-web3-training-week1/
 | EZKL setup (pk + vk) | done | pk.key 138MB, vk.key 66KB |
 | ZK Proof 生成 | done | proof.json 18KB |
 | 本地验证 | done | verify OK |
-| EVM Verifier 生成 | blocked | ezkl Win async bug, 需 Colab |
-| Z.AI GLM-5.1 API | pending | 待新 Key |
-| Verifier 合约编译 | pending | |
-| Sepolia 部署 + 验证 | pending | |
+| EVM Verifier 生成 | done | asyncio.run() 绕过 Win async bug |
+| Z.AI GLM-5.1 API | done | -- |
+| Verifier 合约编译 | done | via_ir = true |
+| Sepolia 部署 | done | [0xe99fb0f146dcbcad66589c7bf9963b785ee5d495](https://sepolia.etherscan.io/address/0xe99fb0f146dcbcad66589c7bf9963b785ee5d495) |
+| 链上验证 | pending | 待用 proof + instances 调 verifyProof |
 
 主方向: Privacy & Security -> ZKML 推理验证
 目标赛道: Z.AI | Web3 x Long-Horizon Task
 项目名: ZKML Pipeline Agent
+
+### 部署信息
+- **合约地址**: `0xE99Fb0F146DcBCAd66589C7BF9963B785EE5D495`
+- **部署交易**: `0xeecc08bf26fc1ede7eb379024161560eb321bb0a363a759ef0c82f4c29420fe7`
+- **网络**: Sepolia (Chain ID: 11155111)
+- **区块**: 11026384
 
 ---
 
