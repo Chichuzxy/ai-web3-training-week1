@@ -1,0 +1,16 @@
+# ZKML Pipeline Agent - Verifier 合约信息
+
+## 新合约（from-scratch setup + prove + create_evm_verifier, 2026-06-12）
+合约地址: 0x75dBdd07fE81628c7aef5a8b48493Ebc200afD60
+部署交易: 见 contracts/broadcast/DeployVerifier.s.sol/11155111/run-latest.json
+网络: Sepolia (11155111)
+验证结果: verifyProof returns TRUE (0x01)
+
+## 旧合约（Day 3 部署，VK 不匹配，已废弃）
+合约地址: 0xE99Fb0F146DcBCAd66589C7BF9963B785EE5D495
+部署交易: 0xeecc08bf26fc1ede7eb379024161560eb321bb0a363a759ef0c82f4c29420fe7
+
+## 关键教训
+- ezkl 23.0.5 的 EVM verifier 必须用 encode_evm_calldata() 生成 calldata
+- 手动 eth_abi.encode 的 instances 格式与 verifier 期望格式不同
+- 必须一次性完成 setup -> prove -> create_evm_verifier 闭环，不能分开跑

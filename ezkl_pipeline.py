@@ -90,14 +90,17 @@ print("  PROOF VERIFIED OK")
 
 # Step 9: create EVM Verifier
 print("=== Step 9: create_evm_verifier ===")
+import asyncio
 os.makedirs("contracts/src", exist_ok=True)
-ezkl.create_evm_verifier(
-    vk_path=f"{OUTPUT_DIR}/vk.key",
-    settings_path=f"{OUTPUT_DIR}/settings.json",
-    sol_code_path="contracts/src/Verifier.sol",
-    abi_path=f"{OUTPUT_DIR}/Verifier.abi",
-    srs_path=f"{OUTPUT_DIR}/kzg.srs"
-)
+async def _create_verifier():
+    await ezkl.create_evm_verifier(
+        vk_path=f"{OUTPUT_DIR}/vk.key",
+        settings_path=f"{OUTPUT_DIR}/settings.json",
+        sol_code_path="contracts/src/Verifier.sol",
+        abi_path=f"{OUTPUT_DIR}/Verifier.abi",
+        srs_path=f"{OUTPUT_DIR}/kzg.srs"
+    )
+asyncio.run(_create_verifier())
 check_file("contracts/src/Verifier.sol", "Verifier.sol")
 
 print("\n=== ALL DONE ===")
