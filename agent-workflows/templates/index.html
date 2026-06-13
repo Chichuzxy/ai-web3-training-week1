@@ -89,8 +89,6 @@ function run() {
 }
 
 function handleEvent(d) {
-  if (d.type === "info") { output.innerHTML += "<span style=\"color:#484f58\">" + d.text + "</span>
-"; output.scrollTop = output.scrollHeight; return; }
   if (d.type === 'start') {
     output.innerHTML = `<span style="color:#58a6ff;">Task: ${d.task}</span>\n`;
   } else if (d.type === 'step_start') {
@@ -102,7 +100,7 @@ function handleEvent(d) {
     for (let i = lines.length - 1; i >= 0; i--) {
       if (lines[i].includes(d.label)) {
         const cls = 'status-' + d.status;
-                lines[i] = "<span class=\"${cls}\">[${d.status.toUpperCase()}]</span> <span class=\"step-label\">${d.label}</span> <span style=\"color:#484f58;font-size:11px;\">" + (d.detail ? d.detail.substring(0,80)+"..." : d.output.substring(0,60)) + "</span>";
+        lines[i] = `<span class="${cls}">[${d.status.toUpperCase()}]</span> <span class="step-label">${d.label}</span> (${d.duration})`;
         break;
       }
     }
