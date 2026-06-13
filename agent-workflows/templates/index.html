@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZKML Pipeline Agent</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+.container { width: 720px; max-width: 95vw; padding: 40px 32px; }
+h1 { font-size: 28px; color: #58a6ff; margin-bottom: 6px; }
+.subtitle { color: #8b949e; font-size: 14px; margin-bottom: 28px; }
+.input-row { display: flex; gap: 10px; margin-bottom: 20px; }
+.input-row input { flex: 1; padding: 12px 16px; border: 1px solid #30363d; border-radius: 8px; background: #161b22; color: #c9d1d9; font-size: 15px; outline: none; transition: border-color 0.2s; }
+.input-row input:focus { border-color: #58a6ff; }
+.input-row button { padding: 12px 28px; background: #238636; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.input-row button:hover { background: #2ea043; }
+.input-row button:disabled { background: #30363d; cursor: not-allowed; }
+#output { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; min-height: 200px; max-height: 400px; overflow-y: auto; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
+.step-line { padding: 4px 0; }
+.step-label { color: #8b949e; }
+.status-ok { color: #3fb950; }
+.status-skip { color: #d29922; }
+.status-error { color: #f85149; }
+.status-done { color: #58a6ff; font-weight: bold; }
+.contract-bar { margin-top: 16px; padding: 12px 16px; background: #161b22; border: 1px solid #30363d; border-radius: 8px; font-size: 13px; color: #8b949e; }
+.contract-bar a { color: #58a6ff; text-decoration: none; }
+.contract-bar a:hover { text-decoration: underline; }
+.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid #30363d; border-top-color: #58a6ff; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 8px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>ZKML Pipeline Agent</h1>
+  <p class="subtitle">一句话驱动 AI Agent 完成 ONNX 模型 -> ZK 证明 -> 链上验证</p>
+
+  <div class="input-row">
+    <input id="taskInput" value="训练房价预测模型，生成 ZK 证明，部署 verifier 到 Sepolia 并验证"
+           onkeydown="if(event.key==='Enter') run()">
+    <button id="runBtn" onclick="run()">Run</button>
+  </div>
+
+  <div id="output">
+    <span style="color:#8b949e;">Ready. Click Run to start the pipeline.</span>
+  </div>
+
+  <div class="contract-bar">
+    Contract: <a href="https://sepolia.etherscan.io/address/{{ contract }}" target="_blank">{{ contract }}</a>
+    &nbsp;|&nbsp; Sepolia Testnet
+  </div>
+</div>
+
+<script>
+const output = document.getElementById('output');
+const btn = document.getElementById('runBtn');
+const input = document.getElementById('taskInput');
+
+function run() {
+  output.innerHTML = '<span class="spinner"></span> Running...\n';
+  btn.disabled = true;
+
+  fetch('/run', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({task: input.value})
+  }).then(response => {
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    function read() {
+      reader.read().then(({done, value}) => {
+        if (done) { btn.disabled = false; return; }
+        buffer += decoder.decode(value, {stream: true});
+        const lines = buffer.split('\n');
+        buffer = lines.pop();
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            const data = JSON.parse(line.slice(6));
+            handleEvent(data);
+          }
+        }
+        read();
+      });
+    }
+    read();
+  });
+}
+
+function handleEvent(d) {
+  if (d.type === 'start') {
+    output.innerHTML = `<span style="color:#58a6ff;">Task: ${d.task}</span>\n`;
+  } else if (d.type === 'step_start') {
+    output.innerHTML += `<span class="spinner"></span><span class="step-label">${d.label}...</span>\n`;
+    output.scrollTop = output.scrollHeight;
+  } else if (d.type === 'step_result') {
+    // Replace spinner line with result
+    const lines = output.innerHTML.split('\n');
+    for (let i = lines.length - 1; i >= 0; i--) {
+      if (lines[i].includes(d.label)) {
+        const cls = 'status-' + d.status;
+        lines[i] = `<span class="${cls}">[${d.status.toUpperCase()}]</span> <span class="step-label">${d.label}</span> (${d.duration})`;
+        break;
+      }
+    }
+    output.innerHTML = lines.join('\n');
+    output.scrollTop = output.scrollHeight;
+  } else if (d.type === 'done') {
+    output.innerHTML += '\n<span class="status-done">Pipeline Complete!</span>';
+    output.scrollTop = output.scrollHeight;
+  }
+}
+</script>
+</body>
+</html>
