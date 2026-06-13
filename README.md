@@ -8,9 +8,10 @@
 
 ---
 
-## 📋 本周 (Week 3) 目标
 
-收敛方向、补齐研究、组建队伍、为 Week 4 Hackathon 冲刺做好一切准备。
+## 📋 本周 (Week 4) ✅ Hackathon Sprint 完成
+
+**Demo:** 一句话输入 -> Agent 全自动编排 -> 链上 ZK 验证通过
 
 ---
 
@@ -236,33 +237,14 @@ ai-web3-training-week1/
 | GLM API 集成调研 | done |
 | Foundry 安装 + contracts 初始化 | done | forge 1.7.1, PATH 已写入 .bashrc, tests: 2 passed |
 
-### Week 4 | 进行中
+### Week 4 | 已完成 ✅
+
 | 任务 | 状态 | 备注 |
 |------|------|------|
-| 模型训练 + ONNX 导出 | done | Gemm 算子, 归一化输入 |
-| EZKL 电路编译 | done | compiled.model |
-| EZKL setup (pk + vk) | done | pk.key 138MB, vk.key 66KB |
-| ZK Proof 生成 | done | proof.json 18KB |
-| 本地验证 | done | verify OK |
-| EVM Verifier 生成 | done | asyncio.run() 绕过 Win async bug |
-| Z.AI GLM-5.1 API | done | -- |
-| Verifier 合约编译 | done | via_ir = true |
-| Sepolia 部署 | done | [0xe99fb0f146dcbcad66589c7bf9963b785ee5d495](https://sepolia.etherscan.io/address/0xe99fb0f146dcbcad66589c7bf9963b785ee5d495) |
-| 链上验证 | pending | 待用 proof + instances 调 verifyProof |
+| 全流程 6 Steps | done | run_demo.py 端到端通过 |
+| Sepolia 部署 | done | 0x75dBdd...afD60 |
+| 链上验证 | done | verifyProof() returns TRUE |
+| Agent 编排 | done | Hermes tool calling |
 
-主方向: Privacy & Security -> ZKML 推理验证
-目标赛道: Z.AI | Web3 x Long-Horizon Task
-项目名: ZKML Pipeline Agent
-
-### 部署信息
-- **合约地址**: `0xE99Fb0F146DcBCAd66589C7BF9963B785EE5D495`
-- **部署交易**: `0xeecc08bf26fc1ede7eb379024161560eb321bb0a363a759ef0c82f4c29420fe7`
-- **网络**: Sepolia (Chain ID: 11155111)
-- **区块**: 11026384
-
----
-
-## 💡 备注
-
-ZKML 全链路 (训练->ONNX->电路->部署->推理->验证) 作为 Long-Horizon Task 天然对齐 Z.AI 赛道。
-Week 4 目标: 端到端最小闭环 demo。当前 Day 1-2 已完成，proof 本地验证通过，待 Verifier 合约生成后上链。
+**合约:** 0x75dBdd07fE81628c7aef5a8b48493Ebc200afD60
+**部署 TX:** 0x2d4c95903a7b2c8714754919216c97a60dedc005a81726eff1396d79fab93dec

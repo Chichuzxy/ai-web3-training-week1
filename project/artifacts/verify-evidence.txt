@@ -1,0 +1,19 @@
+# ZKML Pipeline Agent - 链上验证证据
+
+## 验证方式
+cast call verifyProof() 返回 0x0000...0001 (TRUE)
+
+## 合约信息
+- 合约: 0x75dBdd07fE81628c7aef5a8b48493Ebc200afD60
+- 部署 TX: 0x2d4c95903a7b2c8714754919216c97a60dedc005a81726eff1396d79fab93dec
+- 网络: Sepolia (11155111)
+
+## 验证 calldata
+见 project/ezkl_output/evm_calldata.hex (6858 bytes)
+
+## 验证命令
+cast call 0x75dBdd07fE81628c7aef5a8b48493Ebc200afD60 $(cat project/ezkl_output/evm_calldata.hex) --rpc-url <SEPOLIA_RPC>
+
+## 验证结果
+0x0000000000000000000000000000000000000000000000000000000000000001
+>>> verifyProof = TRUE
