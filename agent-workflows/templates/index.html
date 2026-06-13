@@ -100,7 +100,8 @@ function handleEvent(d) {
     for (let i = lines.length - 1; i >= 0; i--) {
       if (lines[i].includes(d.label)) {
         const cls = 'status-' + d.status;
-        lines[i] = `<span class="${cls}">[${d.status.toUpperCase()}]</span> <span class="step-label">${d.label}</span> (${d.duration})`;
+        lines[i] = `<span class="${cls}">[${d.status.toUpperCase()}]</span> <span class="step-label">${d.label}</span> (${d.duration})
+<span style="color:#484f58;font-size:11px;">${d.output ? d.output.substring(0,120) : ""}</span>`;
         break;
       }
     }
