@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+import sys, os
+_fb = os.path.join(os.path.expanduser("~"), ".foundry", "bin")
+os.environ["PATH"] = _fb + os.pathsep + os.environ.get("PATH", "")
+
 """
 ZKML Pipeline Agent - Demo Runner
 Week 4 Hackathon: 用户一句话 -> agent 全自动编排 -> 链上 ZK 验证
@@ -82,7 +86,7 @@ def step_5_deploy() -> StepResult:
 
     # 检查链上是否有代码
     import subprocess
-    code = subprocess.run(["/c/Users/Administrator/.foundry/bin/cast", "code", KNOWN_ADDR, "--rpc-url", rpc],
+    code = subprocess.run(["cast.exe", "code", KNOWN_ADDR, "--rpc-url", rpc],
         capture_output=True, text=True, timeout=10)
     if code.stdout.strip() and code.stdout.strip() != "0x":
         return StepResult("deploy", "skip",
@@ -90,7 +94,7 @@ def step_5_deploy() -> StepResult:
 
     import subprocess
     result = subprocess.run([
-        "/c/Users/Administrator/.foundry/bin/forge", "script", "script/DeployVerifier.s.sol:DeployVerifier",
+        "forge.exe", "script", "script/DeployVerifier.s.sol:DeployVerifier",
         "--rpc-url", rpc, "--private-key", pk, "--broadcast"
     ], capture_output=True, text=True, timeout=300, cwd="contracts")
 
@@ -124,7 +128,7 @@ def step_6_verify(address: str) -> StepResult:
     import subprocess
     calldata_hex = "0x" + calldata.hex()
     result = subprocess.run([
-        "/c/Users/Administrator/.foundry/bin/cast", "call", address, calldata_hex,
+        "cast.exe", "call", address, calldata_hex,
         "--rpc-url", env.get("SEPOLIA_RPC_URL", "")
     ], capture_output=True, text=True, timeout=30)
 
