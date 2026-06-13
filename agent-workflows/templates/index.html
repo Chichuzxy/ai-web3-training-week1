@@ -6,111 +6,61 @@
 <title>ZKML Pipeline Agent</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
-.container { width: 720px; max-width: 95vw; padding: 40px 32px; }
-h1 { font-size: 28px; color: #58a6ff; margin-bottom: 6px; }
-.subtitle { color: #8b949e; font-size: 14px; margin-bottom: 28px; }
-.input-row { display: flex; gap: 10px; margin-bottom: 20px; }
-.input-row input { flex: 1; padding: 12px 16px; border: 1px solid #30363d; border-radius: 8px; background: #161b22; color: #c9d1d9; font-size: 15px; outline: none; transition: border-color 0.2s; }
-.input-row input:focus { border-color: #58a6ff; }
-.input-row button { padding: 12px 28px; background: #238636; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-.input-row button:hover { background: #2ea043; }
-.input-row button:disabled { background: #30363d; cursor: not-allowed; }
-#output { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; min-height: 200px; max-height: 400px; overflow-y: auto; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
-.step-line { padding: 4px 0; }
-.step-label { color: #8b949e; }
-.status-ok { color: #3fb950; }
-.status-skip { color: #d29922; }
-.status-error { color: #f85149; }
-.status-done { color: #58a6ff; font-weight: bold; }
-.contract-bar { margin-top: 16px; padding: 12px 16px; background: #161b22; border: 1px solid #30363d; border-radius: 8px; font-size: 13px; color: #8b949e; }
-.contract-bar a { color: #58a6ff; text-decoration: none; }
-.contract-bar a:hover { text-decoration: underline; }
-.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid #30363d; border-top-color: #58a6ff; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 8px; }
+body { font-family: 'Segoe U	', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; }
+.topbar { background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 24px; display: flex; align-items: center; gap: 12px; }
+.topbar .logo { font-size: 18px; font-weight: 700; color: #58a6ff; }
+.topbar .badge { font-size: 11px; padding: 3px 8px; border-radius: 12px; background: #1f2a3a; color: #58a6ff; border: 1px solid #30363d; }
+.main { display: flex; height: calc(100vh - 56px); }
+.left { flex: 1; display: flex; flex-direction: column; border-right: 1px solid #30363d; overflow: hidden; }
+.right { width: 340px; padding: 20px; overflow-y: auto; background: #0d1117; }
+.pipeline-header { padding: 20px 24px 12px; }
+.pipeline-header h2 { font-size: 16px; color: #c9d1d9; margin-bottom: 4px; }
+.pipeline-header p { font-size: 12px; color: #8b949e; }
+.input-area { padding: 0 24px 16px; display: flex; gap: 8px; }
+.input-area input { flex: 1; padding: 10px 14px; border: 1px solid #30363d; border-radius: 6px; background: #161b22; color: #c9d1d9; font-size: 13px; outline: none; }
+.input-area input:focus { border-color: #58a6ff; }
+.input-area button { padding: 10px 24px; background: #238636; color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.input-area button:hover { background: #2ea043; }
+.input-area button:disabled { background: #21262d; color: #484f58; cursor: not-allowed; }
+#log { flex: 1; overflow-y: auto; padding: 0 24px 20px; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 12px; line-height: 1.8; }
+.log-info { color: #8b949e; }
+.log-ok { color: #3fb950; }
+.log-skip { color: #d29922; }
+.log-err { color: #f85149; }
+.log-highlight { color: #58a6ff; }
+.log-dim { color: #484f58; }
+.spinner-inline { display: inline-block; width: 10px; height: 10px; border: 2px solid #30363d; border-top-color: #58a6ff; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
 @keyframes spin { to { transform: rotate(360deg); } }
+.right h3 { font-size: 13px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; margin-top: 24px; }
+.right h3:first-child { margin-top: 0; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px; margin-bottom: 8px; font-size: 12px; }
+.card .label { color: #8b949e; font-size: 11px; margin-bottom: 4px; }
+.card .value { color: #c9d1d9; font-size: 13px; word-break: break-all; }
+.card .value.mono { font-family: monospace; font-size: 11px; }
+.card a { color: #58a6ff; text-decoration: none; font-size: 12px; }
+.card a:hover { text-decoration: underline; }
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.status-dot.ok { background: #3fb950; }
+.status-dot.pending { background: #d29922; }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.stack span { font-size: 11px; padding: 3px 8px; background: #21262d; border-radius: 4px; color: #8b949e; }
+.fade-in { animation: fade 0.4s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>ZKML Pipeline Agent</h1>
-  <p class="subtitle">一句话驱动 AI Agent 完成 ONNX 模型 -> ZK 证明 -> 链上验证</p>
-
-  <div class="input-row">
-    <input id="taskInput" value="训练房价预测模型，生成 ZK 证明，部署 verifier 到 Sepolia 并验证"
-           onkeydown="if(event.key==='Enter') run()">
-    <button id="runBtn" onclick="run()">Run</button>
-  </div>
-
-  <div id="output">
-    <span style="color:#8b949e;">Ready. Click Run to start the pipeline.</span>
-  </div>
-
-  <div class="contract-bar">
-    Contract: <a href="https://sepolia.etherscan.io/address/{{ contract }}" target="_blank">{{ contract }}</a>
-    &nbsp;|&nbsp; Sepolia Testnet
-  </div>
+<div class="topbar">
+  <span class="logo">ZKML Pipeline Agent</span>
+  <span class="badge">Z.AI Track</span>
+  <span class="badge">Sepolia</span>
+  <span style="flex:1"></span>
+  <span style="font-size:12px;color:#8b949e;">Hackathon Demo</span>
 </div>
-
-<script>
-const output = document.getElementById('output');
-const btn = document.getElementById('runBtn');
-const input = document.getElementById('taskInput');
-
-function run() {
-  output.innerHTML = '<span class="spinner"></span> Running...\n';
-  btn.disabled = true;
-
-  fetch('/run', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({task: input.value})
-  }).then(response => {
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-    let buffer = '';
-
-    function read() {
-      reader.read().then(({done, value}) => {
-        if (done) { btn.disabled = false; return; }
-        buffer += decoder.decode(value, {stream: true});
-        const lines = buffer.split('\n');
-        buffer = lines.pop();
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const data = JSON.parse(line.slice(6));
-            handleEvent(data);
-          }
-        }
-        read();
-      });
-    }
-    read();
-  });
-}
-
-function handleEvent(d) {
-  if (d.type === 'start') {
-    output.innerHTML = `<span style="color:#58a6ff;">Task: ${d.task}</span>\n`;
-  } else if (d.type === 'step_start') {
-    output.innerHTML += `<span class="spinner"></span><span class="step-label">${d.label}...</span>\n`;
-    output.scrollTop = output.scrollHeight;
-  } else if (d.type === 'step_result') {
-    // Replace spinner line with result
-    const lines = output.innerHTML.split('\n');
-    for (let i = lines.length - 1; i >= 0; i--) {
-      if (lines[i].includes(d.label)) {
-        const cls = 'status-' + d.status;
-        lines[i] = `<span class="${cls}">[${d.status.toUpperCase()}]</span> <span class="step-label">${d.label}</span> (${d.duration})`;
-        break;
-      }
-    }
-    output.innerHTML = lines.join('\n');
-    output.scrollTop = output.scrollHeight;
-  } else if (d.type === 'done') {
-    output.innerHTML += '\n<span class="status-done">Pipeline Complete!</span>';
-    output.scrollTop = output.scrollHeight;
-  }
-}
-</script>
-</body>
-</html>
+<div class="main">
+  <div class="left">
+    <div class="pipeline-header">
+      <h2>Pipeline Execution</h2>
+      <p>Natural language --> 6-step automation --> On-chain ZK verification</p>
+    </div>
+    <div class="input-area">
+      <input id="taskInput" value="让练房价预测模型，生成 ZK
