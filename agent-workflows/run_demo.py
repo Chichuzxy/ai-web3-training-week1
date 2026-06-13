@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import shutil
 """
 ZKML Pipeline Agent - Demo Runner
 Week 4 Hackathon: 用户一句话 -> agent 全自动编排 -> 链上 ZK 验证
@@ -58,6 +57,7 @@ def step_2_ezkl_pipeline() -> StepResult:
 
     # 需要重新跑
     import subprocess
+import shutil
     result = subprocess.run(["python", "ezkl_pipeline.py"],
         capture_output=True, text=True, timeout=600)
     if result.returncode == 0:
@@ -83,6 +83,7 @@ def step_5_deploy() -> StepResult:
 
     # 检查链上是否有代码
     import subprocess
+import shutil
     code = subprocess.run([shutil.which("cast") or "cast", "code", KNOWN_ADDR, "--rpc-url", rpc],
         capture_output=True, text=True, timeout=10)
     if code.stdout.strip() and code.stdout.strip() != "0x":
@@ -90,6 +91,7 @@ def step_5_deploy() -> StepResult:
             f"合约已部署: {KNOWN_ADDR}", time.time() - t0)
 
     import subprocess
+import shutil
     result = subprocess.run([
         shutil.which("forge") or "forge", "script", "script/DeployVerifier.s.sol:DeployVerifier",
         "--rpc-url", rpc, "--private-key", pk, "--broadcast"
@@ -123,6 +125,7 @@ def step_6_verify(address: str) -> StepResult:
                 env[k] = v
 
     import subprocess
+import shutil
     calldata_hex = "0x" + calldata.hex()
     result = subprocess.run([
         shutil.which("cast") or "cast", "call", address, calldata_hex,
