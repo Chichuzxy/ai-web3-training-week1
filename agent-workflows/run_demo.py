@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import shutil
 """
 ZKML Pipeline Agent - Demo Runner
 Week 4 Hackathon: 用户一句话 -> agent 全自动编排 -> 链上 ZK 验证
@@ -82,7 +83,7 @@ def step_5_deploy() -> StepResult:
 
     # 检查链上是否有代码
     import subprocess
-    code = subprocess.run(["cast", "code", KNOWN_ADDR, "--rpc-url", rpc],
+    code = subprocess.run([shutil.which("cast") or "cast", "code", KNOWN_ADDR, "--rpc-url", rpc],
         capture_output=True, text=True, timeout=10)
     if code.stdout.strip() and code.stdout.strip() != "0x":
         return StepResult("deploy", "skip",
@@ -90,7 +91,7 @@ def step_5_deploy() -> StepResult:
 
     import subprocess
     result = subprocess.run([
-        "forge", "script", "script/DeployVerifier.s.sol:DeployVerifier",
+        shutil.which("forge") or "forge", "script", "script/DeployVerifier.s.sol:DeployVerifier",
         "--rpc-url", rpc, "--private-key", pk, "--broadcast"
     ], capture_output=True, text=True, timeout=300, cwd="contracts")
 
@@ -124,7 +125,7 @@ def step_6_verify(address: str) -> StepResult:
     import subprocess
     calldata_hex = "0x" + calldata.hex()
     result = subprocess.run([
-        "cast", "call", address, calldata_hex,
+        shutil.which("cast") or "cast", "call", address, calldata_hex,
         "--rpc-url", env.get("SEPOLIA_RPC_URL", "")
     ], capture_output=True, text=True, timeout=30)
 
