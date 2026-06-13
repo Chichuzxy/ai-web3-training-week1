@@ -72,12 +72,13 @@ def step_5_deploy() -> StepResult:
     # 检查已知合约
     KNOWN_ADDR = "0x75dBdd07fE81628c7aef5a8b48493Ebc200afD60"
     env = {}
-    with open(".env") as f:
+    with open(".env", encoding="utf-8") as f:
         for line in f:
             if '=' in line and not line.startswith('#'):
                 k, v = line.strip().split('=', 1)
                 env[k] = v
     rpc = env.get("SEPOLIA_RPC_URL", "")
+    pk = env.get("PRIVATE_KEY", "")
 
     # 检查链上是否有代码
     import subprocess
@@ -114,7 +115,7 @@ def step_6_verify(address: str) -> StepResult:
     )
 
     env = {}
-    with open(".env") as f:
+    with open(".env", encoding="utf-8") as f:
         for line in f:
             if '=' in line and not line.startswith('#'):
                 k, v = line.strip().split('=', 1)
