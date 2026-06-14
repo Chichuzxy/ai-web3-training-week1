@@ -181,6 +181,12 @@ ai-web3-training-week1/
 
 ---
 
+## 🏁 训练营完成 | 2026-06-14
+
+全 4 周完成，共踩坑 24 个，详见 week4/day7-final-notes.md
+
+---
+
 ## 🚦 进度追踪
 
 ### Week 1 完成进度
